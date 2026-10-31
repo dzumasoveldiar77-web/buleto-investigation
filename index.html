@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Buleto Investigation</title>
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><div class="mark">BI</div><div><strong>BULETO INVESTIGATION</strong><span>Независимый анализ результатов</span></div></div>
+    <span class="status"><i></i> Локальный режим</span>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <div><p class="eyebrow">ПРОЕКТ 1.0 · ИССЛЕДОВАТЕЛЬСКАЯ ПАНЕЛЬ</p><h1>Правда — в проверяемых данных.</h1><p class="lead">Собираем, проверяем и анализируем результаты. Не предсказываем выигрыши и не делаем выводов о нечестности без доказательств.</p></div>
+      <div class="hero-note"><b>Важно</b><span>Пока не подключён подтверждённый источник данных. Демонстрационных результатов здесь нет.</span></div>
+    </section>
+    <section class="metrics">
+      <article class="metric"><span>Записей в наборе</span><strong id="total">0</strong><small>Проверенные импортированные записи</small></article>
+      <article class="metric"><span>Первое число</span><strong id="first">—</strong><small>По времени в наборе</small></article>
+      <article class="metric"><span>Последнее число</span><strong id="last">—</strong><small>По времени в наборе</small></article>
+      <article class="metric"><span>Ошибки импорта</span><strong id="errors">0</strong><small>Строки, которые не прошли проверку</small></article>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><div><p class="eyebrow">ИСТОЧНИК ДАННЫХ</p><h2>Импорт истории результатов</h2></div><label class="upload">Выбрать CSV-файл<input id="file" type="file" accept=".csv,text/csv" /></label></div>
+      <p class="muted">Формат CSV: <code>timestamp,number,source</code>. Число должно быть целым от 0 до 36. Время — ISO 8601, например <code>2026-11-01T00:00:00+06:00</code>.</p>
+      <div class="actions"><button id="export" class="secondary" disabled>Экспортировать проверенные данные</button><button id="clear" class="ghost" disabled>Очистить набор</button></div>
+      <div id="message" class="message">Ожидается CSV-файл. Данные сохраняются только в этом браузере на этом устройстве.</div>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><div><p class="eyebrow">РАСПРЕДЕЛЕНИЕ</p><h2>Частота чисел 0–36</h2></div><span class="muted" id="sample">Недостаточно данных</span></div>
+      <div id="bars" class="bars"><p class="empty">После импорта здесь появится частота каждого числа.</p></div>
+      <p class="footnote">Частота в прошлой выборке не предсказывает следующий результат. Статистические отклонения требуют проверки качества источника, размера выборки и условий генерации.</p>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><div><p class="eyebrow">ЖУРНАЛ</p><h2>Последние записи</h2></div><span class="muted">До 20 строк</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Время</th><th>Число</th><th>Источник</th></tr></thead><tbody id="rows"><tr><td colspan="3" class="empty">Пока нет импортированных записей.</td></tr></tbody></table></div>
+    </section>
+    <footer>Исследовательский инструмент. Не является игровым советником, прогнозом или доказательством нарушения правил платформы.</footer>
+  </main>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
